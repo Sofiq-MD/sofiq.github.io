@@ -1,122 +1,1366 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sofiq Ultimate Portfolio</title><style>
-body {
-  margin: 0;
-  font-family: Arial;
-  background: black;
-  color: white;
-  text-align: center;
-  overflow-x: hidden;
+
+<title>MD Sofiqul Islam | Official Portfolio</title>
+
+<meta name="description" content="Official portfolio of MD Sofiqul Islam (Sofiq) - Freelancer, Content Creator, Tech Creator and Digital Project Owner.">
+<meta name="theme-color" content="#05070d">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* Loader */
-#loader {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #38bdf8;
-  font-size: 24px;
-  z-index: 9999;
+html{
+    scroll-behavior:smooth;
 }
 
-/* Cursor */
-.cursor {
-  position: fixed;
-  width: 15px;
-  height: 15px;
-  background: #38bdf8;
-  border-radius: 50%;
-  box-shadow: 0 0 15px #38bdf8;
-  pointer-events: none;
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#03050a;
+    color:#fff;
+    overflow-x:hidden;
 }
 
-/* Canvas */
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
+#particles{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:-3;
 }
 
-/* Profile */
-.profile-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 3px solid #38bdf8;
-  box-shadow: 0 0 40px #38bdf8;
-  margin-top: 40px;
+.bg-glow{
+    position:fixed;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(0,190,255,.13),transparent 70%);
+    top:-250px;
+    left:50%;
+    transform:translateX(-50%);
+    pointer-events:none;
+    z-index:-2;
 }
 
-/* Buttons */
-.btn {
-  display: inline-block;
-  margin: 10px;
-  padding: 12px 20px;
-  border-radius: 10px;
-  border: 1px solid #38bdf8;
-  color: #38bdf8;
-  text-decoration: none;
+/* LOADER */
+#loader{
+    position:fixed;
+    inset:0;
+    background:#020308;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:99999;
+    transition:.8s;
 }
-.btn:hover {
-  background: #38bdf8;
-  color: black;
-}
-</style></head><body><div id="loader">Entering Future...</div>
-<div class="cursor"></div>
-<canvas id="bg"></canvas><!-- Audio --><audio id="bgmusic" autoplay loop>
-  <source src="music.mp3" type="audio/mp3">
-</audio><img src="profile.jpg" class="profile-img"><h1>MD Sofiqul Islam</h1>
-<p>💻 Freelancer | 🎬 Creator | 📱 App Promoter</p>
-<p style="color:#22c55e;">🎮 PUBG Gamer</p><!-- Buttons --><div>
-<a href="https://youtube.com/@yourchannel1" class="btn">SofiqTech</a>
-<a href="https://youtube.com/@yourchannel2" class="btn">STech Pro</a>
-<a href="https://facebook.com/yourpage" class="btn">Facebook</a>
-<a href="https://t.me/yourusername" class="btn">Telegram</a>
-<a href="https://wa.me/880XXXXXXXXXX" class="btn">WhatsApp</a>
-</div><script>
-/* Loader */
-window.onload = () => {
-  document.getElementById("loader").style.display = "none";
-};
 
-/* Cursor */
-document.addEventListener("mousemove", e => {
-  let c = document.querySelector(".cursor");
-  c.style.left = e.clientX + "px";
-  c.style.top = e.clientY + "px";
+.loader-logo{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    border:2px solid #19cfff;
+    box-shadow:0 0 20px #19cfff,0 0 60px rgba(25,207,255,.4);
+    animation:pulse 1.5s infinite;
+}
+
+.loader-text{
+    margin-top:20px;
+    color:#19cfff;
+    font-size:14px;
+    letter-spacing:5px;
+}
+
+.loader-line{
+    width:180px;
+    height:2px;
+    background:#111827;
+    margin-top:15px;
+    overflow:hidden;
+}
+
+.loader-line span{
+    display:block;
+    width:50%;
+    height:100%;
+    background:#19cfff;
+    animation:loading 1.2s infinite;
+}
+
+@keyframes loading{
+    from{transform:translateX(-100%)}
+    to{transform:translateX(300%)}
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.08);
+        box-shadow:0 0 35px #19cfff,0 0 90px rgba(25,207,255,.5);
+    }
+}
+
+.loader-hidden{
+    opacity:0;
+    visibility:hidden;
+}
+
+/* CURSOR */
+.cursor-dot{
+    position:fixed;
+    width:9px;
+    height:9px;
+    background:#19cfff;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9998;
+    box-shadow:0 0 20px #19cfff;
+    transform:translate(-50%,-50%);
+}
+
+.cursor-ring{
+    position:fixed;
+    width:34px;
+    height:34px;
+    border:1px solid rgba(25,207,255,.7);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9997;
+    transform:translate(-50%,-50%);
+}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:calc(100% - 30px);
+    max-width:1050px;
+    padding:12px 18px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(5,8,15,.72);
+    backdrop-filter:blur(18px);
+    border-radius:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#19cfff;
+}
+
+.nav-links{
+    display:flex;
+    gap:22px;
+}
+
+.nav-links a{
+    color:#b9c4d0;
+    text-decoration:none;
+    font-size:13px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#19cfff;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px 70px;
+}
+
+.hero-content{
+    max-width:950px;
+}
+
+.profile-wrap{
+    width:190px;
+    height:190px;
+    margin:0 auto 30px;
+    border-radius:50%;
+    padding:5px;
+    background:linear-gradient(135deg,#19cfff,#087cff,#19cfff);
+    box-shadow:0 0 25px rgba(25,207,255,.5),
+               0 0 80px rgba(25,207,255,.18);
+    animation:profileFloat 4s ease-in-out infinite;
+}
+
+.profile-img{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    object-fit:cover;
+    display:block;
+    border:5px solid #05070d;
+}
+
+@keyframes profileFloat{
+    50%{transform:translateY(-10px)}
+}
+
+.hero h1{
+    font-size:clamp(40px,7vw,76px);
+    line-height:1.05;
+    font-weight:900;
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    color:#19cfff;
+    text-shadow:0 0 25px rgba(25,207,255,.5);
+}
+
+.hero-subtitle{
+    margin-top:18px;
+    color:#b9c4d0;
+    font-size:18px;
+}
+
+.hero-role{
+    margin-top:12px;
+    color:#19cfff;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.gamer{
+    display:inline-flex;
+    margin-top:15px;
+    padding:7px 14px;
+    border:1px solid rgba(34,197,94,.35);
+    background:rgba(34,197,94,.08);
+    color:#4ade80;
+    border-radius:50px;
+    font-size:13px;
+}
+
+/* BUTTONS */
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.float-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 20px;
+    color:#fff;
+    text-decoration:none;
+    border:1px solid rgba(25,207,255,.35);
+    background:rgba(12,18,28,.72);
+    border-radius:14px;
+    backdrop-filter:blur(12px);
+    transition:.35s;
+    box-shadow:0 8px 25px rgba(0,0,0,.3);
+}
+
+.float-btn:hover{
+    transform:translateY(-6px);
+    border-color:#19cfff;
+    color:#19cfff;
+    box-shadow:0 12px 35px rgba(25,207,255,.2);
+}
+
+/* SECTIONS */
+section{
+    padding:100px 20px;
+}
+
+.container{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title span{
+    color:#19cfff;
+    font-size:13px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin-top:10px;
+}
+
+/* ABOUT */
+.about-card{
+    max-width:850px;
+    margin:auto;
+    padding:35px;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,.08);
+    background:linear-gradient(145deg,rgba(18,25,38,.8),rgba(5,8,15,.8));
+    backdrop-filter:blur(15px);
+    text-align:center;
+}
+
+.about-card p{
+    color:#aeb9c6;
+    line-height:1.9;
+    font-size:16px;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.card{
+    position:relative;
+    padding:30px;
+    border-radius:22px;
+    border:1px solid rgba(255,255,255,.08);
+    background:linear-gradient(145deg,rgba(17,24,39,.78),rgba(5,8,15,.75));
+    backdrop-filter:blur(15px);
+    transition:.4s;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:radial-gradient(circle,rgba(25,207,255,.12),transparent 70%);
+    top:-90px;
+    right:-90px;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(25,207,255,.5);
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.card-icon{
+    font-size:35px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    font-size:23px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#9ca9b7;
+    line-height:1.7;
+}
+
+.card-link{
+    display:inline-flex;
+    margin-top:20px;
+    padding:10px 16px;
+    border-radius:12px;
+    color:#19cfff;
+    border:1px solid rgba(25,207,255,.3);
+    text-decoration:none;
+    transition:.3s;
+}
+
+.card-link:hover{
+    background:#19cfff;
+    color:#020308;
+}
+
+/* APP */
+.app-card{
+    display:grid;
+    grid-template-columns:130px 1fr;
+    gap:30px;
+    align-items:center;
+    padding:35px;
+    border-radius:26px;
+    border:1px solid rgba(25,207,255,.2);
+    background:linear-gradient(135deg,rgba(25,207,255,.08),rgba(10,15,25,.85));
+}
+
+.app-logo{
+    width:120px;
+    height:120px;
+    border-radius:28px;
+    object-fit:cover;
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 0 30px rgba(25,207,255,.2);
+}
+
+.app-card h3{
+    font-size:30px;
+}
+
+.app-card p{
+    color:#aeb9c6;
+    margin:12px 0;
+    line-height:1.7;
+}
+
+.app-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+/* CHANNELS */
+.channel-card{
+    min-height:250px;
+}
+
+.channel-icon{
+    font-size:38px;
+}
+
+.channel-type{
+    color:#19cfff;
+    font-size:13px;
+    margin-top:8px;
+}
+
+/* SERVICES */
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.service{
+    text-align:center;
+    padding:28px 20px;
+}
+
+/* GAMER */
+.gamer-card{
+    max-width:700px;
+    margin:auto;
+    text-align:center;
+    border-color:rgba(34,197,94,.18);
+}
+
+.gamer-card:hover{
+    border-color:rgba(34,197,94,.5);
+}
+
+.gamer-card .card-link{
+    color:#4ade80;
+    border-color:rgba(34,197,94,.3);
+}
+
+/* CONTACT */
+.contact-box{
+    text-align:center;
+    padding:45px 25px;
+    border-radius:26px;
+    background:linear-gradient(145deg,rgba(19,207,255,.08),rgba(10,15,25,.8));
+    border:1px solid rgba(25,207,255,.15);
+}
+
+.contact-box p{
+    color:#9ca9b7;
+    margin:15px auto 25px;
+    max-width:600px;
+}
+
+/* AUDIO */
+.audio-control{
+    position:fixed;
+    right:20px;
+    bottom:85px;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:1px solid #19cfff;
+    background:rgba(5,8,15,.85);
+    color:#19cfff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    z-index:900;
+}
+
+/* TOP */
+#topBtn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:#19cfff;
+    color:#020308;
+    font-size:20px;
+    cursor:pointer;
+    z-index:900;
+    display:none;
+}
+
+/* REVEAL */
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:35px 20px;
+    border-top:1px solid rgba(255,255,255,.06);
+    color:#6f7b88;
+}
+
+footer span{
+    color:#19cfff;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .navbar{
+        justify-content:center;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+    .app-card{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .app-logo{
+        margin:auto;
+    }
+
+    .app-buttons{
+        justify-content:center;
+    }
+
+    .profile-wrap{
+        width:155px;
+        height:155px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero-subtitle{
+        font-size:15px;
+    }
+
+    section{
+        padding:75px 15px;
+    }
+}
+
+@media(max-width:500px){
+
+    .float-btn{
+        width:100%;
+        justify-content:center;
+    }
+
+    .hero-buttons{
+        width:100%;
+        max-width:330px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .card{
+        padding:25px;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+    <div class="loader-logo"></div>
+    <div class="loader-text">SOFIQ</div>
+    <div class="loader-line"><span></span></div>
+</div>
+
+<div class="bg-glow"></div>
+<canvas id="particles"></canvas>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- BACKGROUND AUDIO -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <div class="logo">Sofiq<span>.</span></div>
+
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#freelancer">Freelancer</a>
+        <a href="#channels">Channels</a>
+        <a href="#app">App</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<header class="hero">
+
+<div class="hero-content reveal">
+
+    <div class="profile-wrap">
+        <img src="profile.jpg"
+             alt="MD Sofiqul Islam"
+             class="profile-img">
+    </div>
+
+    <h1>
+        MD Sofiqul <span>Islam</span>
+    </h1>
+
+    <p class="hero-subtitle">
+        Freelancer • Content Creator • Digital Project Owner
+    </p>
+
+    <p class="hero-role">
+        YouTube • Technology • Apps • Digital Creativity
+    </p>
+
+    <div class="gamer">
+        🎮 PUBG Gamer • Personal Interest
+    </div>
+
+    <div class="hero-buttons">
+
+        <a class="float-btn"
+           href="https://youtube.com/@sofiqtech"
+           target="_blank">
+            ▶️ SofiqTech
+        </a>
+
+        <a class="float-btn"
+           href="https://youtube.com/@stechprox"
+           target="_blank">
+            ▶️ STech Pro
+        </a>
+
+        <a class="float-btn"
+           href="https://youtube.com/@staywithsofiq"
+           target="_blank">
+            🎵 Sofiq Story
+        </a>
+
+        <a class="float-btn"
+           href="https://www.facebook.com/SofiqTech/"
+           target="_blank">
+            📘 Facebook
+        </a>
+
+        <a class="float-btn"
+           href="https://t.me/stechop"
+           target="_blank">
+            ✈️ Telegram
+        </a>
+
+    </div>
+
+</div>
+
+</header>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+<div class="container">
+
+    <div class="section-title reveal">
+        <span>Who I Am</span>
+        <h2>About Me</h2>
+    </div>
+
+    <div class="about-card reveal">
+
+        <p>
+            I'm MD Sofiqul Islam, also known as Sofiq.
+            I'm a freelancer and content creator with a strong interest
+            in technology, YouTube, digital products and creative projects.
+            I work on multiple digital projects and YouTube channels while
+            continuously exploring new ideas and technologies.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- FREELANCER -->
+<section id="freelancer">
+
+<div class="container">
+
+    <div class="section-title reveal">
+        <span>Professional Work</span>
+        <h2>Freelancer</h2>
+    </div>
+
+    <div class="cards">
+
+        <div class="card reveal">
+            <div class="card-icon">🎬</div>
+            <h3>Video Editing</h3>
+            <p>
+                YouTube videos, social media content,
+                short-form videos and creative edits.
+            </p>
+            <a href="#contact" class="card-link">
+                Contact Me ↗
+            </a>
+        </div>
+
+        <div class="card reveal">
+            <div class="card-icon">🎨</div>
+            <h3>Thumbnail Design</h3>
+            <p>
+                Eye-catching YouTube thumbnails and
+                digital promotional graphics.
+            </p>
+            <a href="#contact" class="card-link">
+                Contact Me ↗
+            </a>
+        </div>
+
+        <div class="card reveal">
+            <div class="card-icon">🤖</div>
+            <h3>AI Content Creation</h3>
+            <p>
+                AI-assisted creative content, visuals,
+                video concepts and digital media.
+            </p>
+            <a href="#contact" class="card-link">
+                Contact Me ↗
+            </a>
+        </div>
+
+        <div class="card reveal">
+            <div class="card-icon">📱</div>
+            <h3>Digital Projects</h3>
+            <p>
+                Digital products, app promotion,
+                online services and project management.
+            </p>
+            <a href="#app" class="card-link">
+                View Project ↗
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- YOUTUBE -->
+<section id="channels">
+
+<div class="container">
+
+    <div class="section-title reveal">
+        <span>My Content</span>
+        <h2>YouTube Channels</h2>
+    </div>
+
+    <div class="cards">
+
+        <div class="card channel-card reveal">
+
+            <div class="channel-icon">💻</div>
+
+            <h3>SofiqTech</h3>
+
+            <div class="channel-type">
+                Technology Channel
+            </div>
+
+            <p>
+                Technology tips, tutorials, apps,
+                tools and useful digital content.
+            </p>
+
+            <a class="card-link"
+               href="https://youtube.com/@sofiqtech"
+               target="_blank">
+                Visit Channel ↗
+            </a>
+
+        </div>
+
+
+        <div class="card channel-card reveal">
+
+            <div class="channel-icon">⚡</div>
+
+            <h3>STech Pro</h3>
+
+            <div class="channel-type">
+                Technology Channel
+            </div>
+
+            <p>
+                Tech-focused content, tutorials,
+                digital tools and useful guides.
+            </p>
+
+            <a class="card-link"
+               href="https://youtube.com/@stechprox"
+               target="_blank">
+                Visit Channel ↗
+            </a>
+
+        </div>
+
+
+        <div class="card channel-card reveal">
+
+            <div class="channel-icon">🎵</div>
+
+            <h3>Sofiq Story</h3>
+
+            <div class="channel-type">
+                Music & Story Content
+            </div>
+
+            <p>
+                Music, creative stories and
+                entertainment content.
+            </p>
+
+            <a class="card-link"
+               href="https://youtube.com/@staywithsofiq"
+               target="_blank">
+                Visit Channel ↗
+            </a>
+
+        </div>
+
+
+        <div class="card channel-card reveal">
+
+            <div class="channel-icon">📲</div>
+
+            <h3>Drive Market</h3>
+
+            <div class="channel-type">
+                Official Project
+            </div>
+
+            <p>
+                Updates, offers and information
+                about Drive Market.
+            </p>
+
+            <a class="card-link"
+               href="https://youtube.com/@drivemarketofficial"
+               target="_blank">
+                Visit Channel ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- DRIVE MARKET -->
+<section id="app">
+
+<div class="container">
+
+    <div class="section-title reveal">
+        <span>Featured Project</span>
+        <h2>Drive Market</h2>
+    </div>
+
+    <div class="app-card reveal">
+
+        <img src="drive-market-logo.png"
+             alt="Drive Market"
+             class="app-logo">
+
+        <div>
+
+            <h3>Drive Market</h3>
+
+            <p>
+                A digital platform for mobile recharge,
+                Drive Offers and digital services.
+            </p>
+
+            <div class="app-buttons">
+
+                <a class="float-btn"
+                   href="https://play.google.com/store/apps/details?id=com.dtc24expert.user"
+                   target="_blank">
+                    📲 Google Play
+                </a>
+
+                <a class="float-btn"
+                   href="https://dtc24expert.com"
+                   target="_blank">
+                    🌐 Official Website
+                </a>
+
+                <a class="float-btn"
+                   href="https://www.facebook.com/DriveMarketOfficial"
+                   target="_blank">
+                    📘 Facebook
+                </a>
+
+                <a class="float-btn"
+                   href="https://t.me/DriveMarketOfficial"
+                   target="_blank">
+                    ✈️ Telegram
+                </a>
+
+                <a class="float-btn"
+                   href="https://t.me/DriveMarketHelpline"
+                   target="_blank">
+                    🆘 Support
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- GAMING -->
+<section>
+
+<div class="container">
+
+    <div class="section-title reveal">
+        <span>Personal Interest</span>
+        <h2>Gaming</h2>
+    </div>
+
+    <div class="card gamer-card reveal">
+
+        <div class="card-icon">🎮</div>
+
+        <h3>PUBG Gamer</h3>
+
+        <p>
+            Gaming is one of my favorite ways to relax
+            and enjoy my free time, especially PUBG.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- SOCIAL -->
+<section>
+
+<div class="container">
+
+    <div class="section-title reveal">
+        <span>Find Me Online</span>
+        <h2>Connect With Me</h2>
+    </div>
+
+    <div class="hero-buttons reveal">
+
+        <a class="float-btn"
+           href="https://www.facebook.com/SofiqTech/"
+           target="_blank">
+            📘 Facebook
+        </a>
+
+        <a class="float-btn"
+           href="https://t.me/stechop"
+           target="_blank">
+            ✈️ Telegram
+        </a>
+
+        <a class="float-btn"
+           href="mailto:Nexxtbd@gmail.com">
+            📧 Business Email
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+
+<div class="container">
+
+    <div class="contact-box reveal">
+
+        <div class="section-title">
+            <span>Let's Connect</span>
+            <h2>Have a Project?</h2>
+        </div>
+
+        <p>
+            Interested in working together or want to know more
+            about my projects? Feel free to contact me.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a class="float-btn"
+               href="mailto:Nexxtbd@gmail.com">
+                📧 Email Me
+            </a>
+
+            <a class="float-btn"
+               href="https://t.me/stechop"
+               target="_blank">
+                ✈️ Telegram
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- AUDIO -->
+<button class="audio-control" id="audioBtn" title="Music">
+    🔇
+</button>
+
+<!-- TOP -->
+<button id="topBtn">↑</button>
+
+
+<footer>
+    © 2026 <span>MD Sofiqul Islam</span>. All Rights Reserved.
+</footer>
+
+
+<script>
+
+/* LOADER */
+window.addEventListener("load",function(){
+
+    setTimeout(function(){
+
+        document.getElementById("loader")
+        .classList.add("loader-hidden");
+
+    },1000);
+
 });
 
-/* Particles */
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+/* CURSOR */
+const dot=document.querySelector(".cursor-dot");
+const ring=document.querySelector(".cursor-ring");
 
-let p = [];
-for(let i=0;i<100;i++){
-  p.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height});
+document.addEventListener("mousemove",function(e){
+
+    dot.style.left=e.clientX+"px";
+    dot.style.top=e.clientY+"px";
+
+    ring.style.left=e.clientX+"px";
+    ring.style.top=e.clientY+"px";
+
+});
+
+
+/* PARTICLES */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+
+let particles=[];
+
+function resizeCanvas(){
+
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+
 }
 
-function draw(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle="#38bdf8";
-  p.forEach(pt=>{
-    ctx.beginPath();
-    ctx.arc(pt.x,pt.y,2,0,Math.PI*2);
-    ctx.fill();
-    pt.y+=0.5;
-    if(pt.y>canvas.height) pt.y=0;
-  });
+resizeCanvas();
+
+window.addEventListener("resize",resizeCanvas);
+
+for(let i=0;i<90;i++){
+
+    particles.push({
+
+        x:Math.random()*window.innerWidth,
+        y:Math.random()*window.innerHeight,
+        size:Math.random()*2+0.5,
+        speed:Math.random()*0.5+0.15
+
+    });
+
 }
-setInterval(draw,30);
-</script></body>
+
+function particleAnimation(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    for(let i=0;i<particles.length;i++){
+
+        let p=particles[i];
+
+        p.y-=p.speed;
+
+        if(p.y<0){
+
+            p.y=canvas.height;
+            p.x=Math.random()*canvas.width;
+
+        }
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle="rgba(25,207,255,.8)";
+        ctx.fill();
+
+        for(let j=i+1;j<particles.length;j++){
+
+            let q=particles[j];
+
+            let dx=p.x-q.x;
+            let dy=p.y-q.y;
+
+            let distance=Math.sqrt(dx*dx+dy*dy);
+
+            if(distance<110){
+
+                ctx.beginPath();
+
+                ctx.moveTo(p.x,p.y);
+                ctx.lineTo(q.x,q.y);
+
+                ctx.strokeStyle="rgba(25,207,255,.07)";
+                ctx.stroke();
+
+            }
+
+        }
+
+    }
+
+    requestAnimationFrame(particleAnimation);
+
+}
+
+particleAnimation();
+
+
+/* SCROLL REVEAL */
+const revealElements=
+document.querySelectorAll(".reveal");
+
+function reveal(){
+
+    revealElements.forEach(function(el){
+
+        const top=el.getBoundingClientRect().top;
+
+        if(top<window.innerHeight-70){
+
+            el.classList.add("active");
+
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll",reveal);
+reveal();
+
+
+/* BACK TO TOP */
+const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY>500){
+        topBtn.style.display="block";
+    }else{
+        topBtn.style.display="none";
+    }
+
+});
+
+topBtn.addEventListener("click",function(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+});
+
+
+/* AUDIO */
+const music=document.getElementById("bgMusic");
+const audioBtn=document.getElementById("audioBtn");
+
+let musicStarted=false;
+
+window.addEventListener("load",function(){
+
+    music.volume=0.25;
+
+    music.play()
+    .then(function(){
+
+        musicStarted=true;
+        audioBtn.textContent="🔊";
+
+    })
+    .catch(function(){
+
+        audioBtn.textContent="🔇";
+
+    });
+
+});
+
+
+function startMusic(){
+
+    if(!musicStarted){
+
+        music.volume=0.25;
+
+        music.play()
+        .then(function(){
+
+            musicStarted=true;
+            audioBtn.textContent="🔊";
+
+        })
+        .catch(function(){});
+
+    }
+
+}
+
+document.addEventListener(
+    "click",
+    startMusic,
+    {once:true}
+);
+
+
+audioBtn.addEventListener("click",function(){
+
+    if(music.paused){
+
+        music.play();
+        audioBtn.textContent="🔊";
+
+    }else{
+
+        music.pause();
+        audioBtn.textContent="🔇";
+
+    }
+
+});
+
+</script>
+
+</body>
 </html>
