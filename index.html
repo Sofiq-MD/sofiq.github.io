@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sofiq Ultimate Portfolio</title><style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: black;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Loader */
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #38bdf8;
+  font-size: 24px;
+  z-index: 9999;
+}
+
+/* Cursor */
+.cursor {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  background: #38bdf8;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #38bdf8;
+  pointer-events: none;
+}
+
+/* Canvas */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Profile */
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #38bdf8;
+  box-shadow: 0 0 40px #38bdf8;
+  margin-top: 40px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #38bdf8;
+  color: black;
+}
+</style></head><body><div id="loader">Entering Future...</div>
+<div class="cursor"></div>
+<canvas id="bg"></canvas><!-- Audio --><audio id="bgmusic" autoplay loop>
+  <source src="music.mp3" type="audio/mp3">
+</audio><img src="profile.jpg" class="profile-img"><h1>MD Sofiqul Islam</h1>
+<p>💻 Freelancer | 🎬 Creator | 📱 App Promoter</p>
+<p style="color:#22c55e;">🎮 PUBG Gamer</p><!-- Buttons --><div>
+<a href="https://youtube.com/@yourchannel1" class="btn">SofiqTech</a>
+<a href="https://youtube.com/@yourchannel2" class="btn">STech Pro</a>
+<a href="https://facebook.com/yourpage" class="btn">Facebook</a>
+<a href="https://t.me/yourusername" class="btn">Telegram</a>
+<a href="https://wa.me/880XXXXXXXXXX" class="btn">WhatsApp</a>
+</div><script>
+/* Loader */
+window.onload = () => {
+  document.getElementById("loader").style.display = "none";
+};
+
+/* Cursor */
+document.addEventListener("mousemove", e => {
+  let c = document.querySelector(".cursor");
+  c.style.left = e.clientX + "px";
+  c.style.top = e.clientY + "px";
+});
+
+/* Particles */
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let p = [];
+for(let i=0;i<100;i++){
+  p.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height});
+}
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#38bdf8";
+  p.forEach(pt=>{
+    ctx.beginPath();
+    ctx.arc(pt.x,pt.y,2,0,Math.PI*2);
+    ctx.fill();
+    pt.y+=0.5;
+    if(pt.y>canvas.height) pt.y=0;
+  });
+}
+setInterval(draw,30);
+</script></body>
+</html>
